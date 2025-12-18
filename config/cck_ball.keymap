@@ -25,6 +25,19 @@
 
 / {
     // 上下滚动编码器行为
+	
+	macros {
+        // Types a comma using Alt + 44
+        uni_comma: uni_comma {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <0>;
+            tap-ms = <0>;
+            bindings = <&macro_press &kp LALT>,
+                       <&macro_tap &kp KP_N4 &kp KP_N4>,
+                       <&macro_release &kp LALT>;
+        };
+    };
 
     scroll_vertical_encoder: scroll_vertical_encoder {
         compatible = "zmk,behavior-sensor-rotate";
