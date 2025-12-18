@@ -60,7 +60,7 @@
         #sensor-binding-cells = <0>;
         bindings = <&msc SCRL_DOWN>, <&msc SCRL_UP>;
 
-        tap-ms = <100>;
+        tap-ms = <30>;
     };
 
     // 左右滚动编码器行为
@@ -70,7 +70,7 @@
         #sensor-binding-cells = <0>;
         bindings = <&msc SCRL_LEFT>, <&msc SCRL_RIGHT>;
 
-        tap-ms = <100>;
+        tap-ms = <30>;
     };
 
     behaviors {
