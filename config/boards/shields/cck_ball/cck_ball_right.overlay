@@ -5,7 +5,12 @@
  */
  
 #include "cck_ball.dtsi"
-#include <dt-bindings/zmk/input.h>
+
+/* This provides the codes for X/Y movement (INPUT_REL_X) */
+#include <zephyr/dt-bindings/input/input-event-codes.h>
+
+/* This provides the mouse button and movement behaviors if you need them later */
+#include <dt-bindings/zmk/pointing.h>
 
 &default_transform {
     col-offset = <6>;
@@ -55,6 +60,7 @@
         compatible = "pixart,pmw3610";
         reg = <0>;
         spi-max-frequency = <2000000>;
+		res-cpi = <1600>;
         motion-gpios = <&gpio0 6 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
         scroll-layers = <3>;
         snipe-layers = <4>;
