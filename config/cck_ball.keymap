@@ -25,17 +25,22 @@
 
 / {
     // 上下滚动编码器行为
-	
-	macros {
+
+    macros {
         // Types a comma using Alt + 44
+
         uni_comma: uni_comma {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             wait-ms = <0>;
             tap-ms = <0>;
-            bindings = <&macro_press &kp LALT>,
-                       <&macro_tap &kp KP_N4 &kp KP_N4>,
-                       <&macro_release &kp LALT>;
+            bindings =
+                <&macro_press>,
+                <&kp LALT>,
+                <&macro_tap>,
+                <&kp KP_N4 &kp KP_N4>,
+                <&macro_release>,
+                <&kp LALT>;
         };
     };
 
@@ -65,11 +70,11 @@
 
         QWERTY {
             bindings = <
-&kp ESC           &kp N1          &kp N2        &kp N3     &kp N4    &kp N5    &kp N6  &kp N7      &kp N8     &kp N9          &kp N0          &kp BACKSPACE
-&mo 1             &kp Q           &kp W         &kp E      &kp R     &kp T     &kp Y   &kp U       &kp I      &kp O           &kp P           &kp LEFT_BRACE
-&kp TAB           &kp A           &lt 4 S       &kp D      &lt 3 F   &kp G     &kp H   &kp J       &kp K      &kp L           &kp SEMI        &kp SQT
-&kp LEFT_WIN      &kp Z           &kp X         &kp C      &kp V     &kp B     &kp N   &kp M       &kp COMMA  &kp DOT         &kp UP_ARROW    &kp FSLH
-&kp LEFT_CONTROL  &kp LEFT_SHIFT  &kp LEFT_ALT  &kp SPACE  &mkp MB1  &mkp MB2  &mo 2   &kp KP_DOT  &kp ENTER  &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW
+&kp ESC           &kp N1          &kp N2        &kp N3     &kp N4    &kp N5    &kp N6      &kp N7      &kp N8     &kp N9          &kp N0          &kp BACKSPACE
+&mo 1             &kp Q           &kp W         &kp E      &kp R     &kp T     &kp Y       &kp U       &kp I      &kp O           &kp P           &kp LEFT_BRACE
+&kp TAB           &kp A           &lt 4 S       &kp D      &lt 3 F   &kp G     &kp H       &kp J       &kp K      &kp L           &kp SEMI        &kp SQT
+&kp LEFT_WIN      &kp Z           &kp X         &kp C      &kp V     &kp B     &kp N       &kp M       &kp COMMA  &kp DOT         &kp UP_ARROW    &kp FSLH
+&kp LEFT_CONTROL  &kp LEFT_SHIFT  &kp LEFT_ALT  &kp SPACE  &mkp MB1  &mkp MB2  &uni_comma  &kp KP_DOT  &kp ENTER  &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW
             >;
 
             sensor-bindings =
@@ -124,7 +129,7 @@
 
             sensor-bindings =
                 <&scroll_vertical_encoder>,
-                // 编码器1：上下滚动,,,
+                // 编码器1：上下滚动,,,,
                 <&scroll_horizontal_encoder>;
 
             // 编码器2：左右滚动
