@@ -117,6 +117,21 @@
         compatible = "zmk,input-listener";
         device = <&trackball>;
     };
+
+    snipe_scaler: snipe_scaler {
+        compatible = "zmk,input-processor-scaler";
+        #input-processor-cells = <2>;
+        type = <INPUT_EV_REL>;
+        codes = <INPUT_REL_X INPUT_REL_Y>;
+        track-remainders;
+    };
+
+    /* This listener applies the scaler ONLY when the 'snipe' layer is active */
+    snipe_listener {
+        compatible = "zmk,input-listener";
+        device = <&trackball>;
+        input-processors = <&snipe_scaler 1 2>;
+    };
 };
 
 // enable right encoder
