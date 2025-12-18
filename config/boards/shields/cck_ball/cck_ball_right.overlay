@@ -113,24 +113,52 @@
 
 
 / {
+    /* 1. Combine everything into ONE listener for the trackball. 
+       Multiple listeners on the same device can cause unpredictable behavior.
+    */
     trackball_listener {
         compatible = "zmk,input-listener";
         device = <&trackball>;
+
+        /* Snipe Mode (Layer 4) */
+        snipe_mode {
+            layers = <4>;
+            input-processors = <&snipe_scaler 1 2>; 
+        };
+        
+        /* Vertical Scroll Mode (Layer 1) */
+        scroll_mode {
+            layers = <1>;
+            /* We use the scaler to zero out X and keep Y at 1:1, then map Y to Wheel */
+            input-processors = <&scroll_scaler 0 1>, <&v_scroll_mapper>;
+        };
     };
 
-    snipe_scaler: snipe_scaler {
-        compatible = "zmk,input-processor-scaler";
-        #input-processor-cells = <2>;
-        type = <INPUT_EV_REL>;
-        codes = <INPUT_REL_X INPUT_REL_Y>;
-        track-remainders;
-    };
+    /* 2. All input processors should ideally live inside this block 
+    */
+    input_processors {
+        snipe_scaler: snipe_scaler {
+            compatible = "zmk,input-processor-scaler";
+            #input-processor-cells = <2>;
+            type = <INPUT_EV_REL>;
+            codes = <INPUT_REL_X INPUT_REL_Y>;
+            track-remainders;
+        };
 
-    /* This listener applies the scaler ONLY when the 'snipe' layer is active */
-    snipe_listener {
-        compatible = "zmk,input-listener";
-        device = <&trackball>;
-        input-processors = <&snipe_scaler 1 2>;
+        scroll_scaler: scroll_scaler {
+            compatible = "zmk,input-processor-scaler";
+            #input-processor-cells = <2>;
+            type = <INPUT_EV_REL>;
+            codes = <INPUT_REL_X INPUT_REL_Y>;
+            track-remainders;
+        };
+
+        v_scroll_mapper: v_scroll_mapper {
+            compatible = "zmk,input-processor-code-mapper";
+            #input-processor-cells = <0>;
+            type = <INPUT_EV_REL>;
+            map = <INPUT_REL_Y INPUT_REL_WHEEL>;
+        };
     };
 };
 
