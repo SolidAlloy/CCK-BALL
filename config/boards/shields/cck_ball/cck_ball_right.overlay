@@ -110,6 +110,13 @@
     };
 };
 
+// enable right encoder
+&right_encoder {
+	compatible = "alps,ec11";
+    a-gpios = <&gpio0 10 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
+    b-gpios = <&gpio0 11 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
+	status = "okay";
+};
 
 
 / {
@@ -133,6 +140,15 @@
             input-processors = <&xy_to_scroll_mapper>;
         };
     };
+	
+	/* 2. The Input Listener: This is the 'Brain' */
+    encoder_listener {
+        compatible = "zmk,input-listener";
+        device = <&right_encoder>;
+        
+        /* This mapper turns the encoder's 'ticks' into 'scrolls' */
+        input-processors = <&encoder_to_wheel_mapper>;
+    };
 
     /* 2. All input processors should ideally live inside this block 
     */
@@ -152,11 +168,13 @@
             /* The map works in pairs: <Original Target> */
             map = <INPUT_REL_X INPUT_REL_HWHEEL>, <INPUT_REL_Y INPUT_REL_WHEEL>;
         };
+		
+		encoder_to_wheel_mapper: encoder_to_wheel_mapper {
+            compatible = "zmk,input-processor-code-mapper";
+            #input-processor-cells = <0>;
+            type = <INPUT_EV_REL>;
+            /* Map the relative signal of the encoder to the Vertical Wheel axis */
+            map = <INPUT_REL_MISC INPUT_REL_WHEEL>;
+        };
     };
 };
-
-// enable right encoder
-&right_encoder {
-	status = "okay";
-};
-

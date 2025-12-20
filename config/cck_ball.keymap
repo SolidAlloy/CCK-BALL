@@ -61,22 +61,6 @@
         };
     };
 
-    scroll_vertical_encoder: scroll_vertical_encoder {
-        compatible = "zmk,behavior-sensor-rotate";
-        #sensor-binding-cells = <0>;
-		bindings = <&msc MOVE_UP>, <&msc MOVE_DOWN>;
-        tap-ms = <10>;
-    };
-
-    // 左右滚动编码器行为
-
-    scroll_horizontal_encoder: scroll_horizontal_encoder {
-        compatible = "zmk,behavior-sensor-rotate";
-        #sensor-binding-cells = <0>;
-        bindings = <&msc MOVE_LEFT>, <&msc MOVE_RIGHT>;
-        tap-ms = <10>;
-    };
-
     behaviors {
     };
 
@@ -92,9 +76,6 @@
 &kp LEFT_CONTROL  &kp LEFT_SHIFT  &kp LEFT_ALT  &kp SPACE  &mkp MB1  &mkp MB2  &uni_comma  &uni_dot  &kp ENTER  &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW
             >;
 
-            sensor-bindings =
-                <&scroll_horizontal_encoder>,
-                <&scroll_vertical_encoder>;
         };
 
         F_layers {
@@ -106,7 +87,6 @@
 &trans       &trans      &trans             &trans           &trans                &trans                &kp GRAVE     &bt BT_SEL 0  &bt BT_SEL 1  &trans          &trans   &trans
             >;
 
-            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
         };
 
         BT_layers {
@@ -118,7 +98,6 @@
 &trans  &trans          &trans        &trans        &trans        &trans        &trans      &trans  &trans  &trans  &trans  &trans
             >;
 
-            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
         };
 
         scroll-layers {
@@ -130,7 +109,6 @@
 &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
             >;
 
-            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
         };
 
         snipe-layers {
@@ -141,10 +119,6 @@
 &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
             >;
-
-            sensor-bindings =
-                <&scroll_vertical_encoder>,
-                <&scroll_horizontal_encoder>;
 
             // 编码器2：左右滚动
         };
