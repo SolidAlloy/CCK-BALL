@@ -68,8 +68,8 @@
 
         tap-ms = <30>;
     };
-	
-	zoom_encoder: zoom_encoder {
+
+    zoom_encoder: zoom_encoder {
         compatible = "zmk,behavior-sensor-rotate";
         #sensor-binding-cells = <0>;
         bindings = <&kp LC(KP_PLUS)>, <&kp LC(KP_MINUS)>;
@@ -83,6 +83,7 @@
         compatible = "zmk,behavior-sensor-rotate";
         #sensor-binding-cells = <0>;
         bindings = <&msc MOVE_Y(400)>, <&msc MOVE_Y(-400)>;
+
         tap-ms = <30>;
     };
 
@@ -115,9 +116,7 @@
 &trans       &trans      &trans             &trans           &trans                &trans                &kp GRAVE     &bt BT_SEL 0  &bt BT_SEL 1  &trans          &trans   &trans
             >;
 
-            sensor-bindings =
-                <&inc_dec_kp C_VOL_UP C_VOL_DN>,
-                <&scroll_vertical_encoder>;
+            sensor-bindings = <&zoom_encoder>, <&scroll_vertical_encoder>;
         };
 
         BT_layers {
