@@ -65,7 +65,7 @@
         compatible = "zmk,behavior-sensor-rotate";
         #sensor-binding-cells = <0>;
         bindings = <&kp LBKT>, <&kp RBKT>;
-        tap-ms = <50>;
+        tap-ms = <30>;
     };
 
     // 左右滚动编码器行为
@@ -73,8 +73,8 @@
     scroll_horizontal_encoder: scroll_horizontal_encoder {
         compatible = "zmk,behavior-sensor-rotate";
         #sensor-binding-cells = <0>;
-        bindings = <&msc MOVE_DOWN>, <&msc MOVE_UP>;
-        tap-ms = <50>;
+        bindings = <&msc MOVE_Y(-300)>, <&msc MOVE_Y(300)>;
+        tap-ms = <30>;
     };
 
     behaviors {
