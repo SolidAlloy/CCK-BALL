@@ -66,7 +66,6 @@
         #sensor-binding-cells = <0>;
         bindings = <&kp LBKT>, <&kp RBKT>;
         tap-ms = <30>;
-		wait-ms = <30>;
     };
 
     // 左右滚动编码器行为
@@ -76,7 +75,6 @@
         #sensor-binding-cells = <0>;
         bindings = <&msc MOVE_UP>, <&msc MOVE_DOWN>;
         tap-ms = <30>;
-		wait-ms = <30>;
     };
 
     behaviors {
