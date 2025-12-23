@@ -28,13 +28,11 @@
 
 &lt {
     /* 400ms is a safe starting point. Default is 200ms */
-
-    tapping-term-ms = <400>;
-
+    tapping-term-ms = <300>; 
+    
     /* Optional: Improves fast typing. If you tap, then press-hold quickly, 
        it sends the key again instead of the layer. */
-
-    quick-tap-ms = <175>;
+    quick-tap-ms = <250>; 
 };
 
 / {
