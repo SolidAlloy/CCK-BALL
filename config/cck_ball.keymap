@@ -28,11 +28,13 @@
 
 &lt {
     /* 400ms is a safe starting point. Default is 200ms */
-    tapping-term-ms = <300>; 
-    
+
+    tapping-term-ms = <300>;
+
     /* Optional: Improves fast typing. If you tap, then press-hold quickly, 
        it sends the key again instead of the layer. */
-    quick-tap-ms = <250>; 
+
+    quick-tap-ms = <250>;
 };
 
 / {
@@ -77,11 +79,11 @@
 
         QWERTY {
             bindings = <
-&kp BACKSPACE       &kp N1     &kp N2        &kp N3       &kp N4    &kp N5    &kp N6        &kp N7     &kp N8         &kp N9          &kp N0          &kp ESC
-&lt 1 TAB           &kp Q      &kp W         &kp E        &kp R     &kp T     &kp Y         &kp U      &kp I          &kp O           &kp P           &kp LEFT_BRACKET
-&kp LC(LEFT_SHIFT)  &kp A      &kp S         &kp D        &kp F     &kp G     &kp H         &kp J      &kp K          &kp L           &kp SEMI        &kp SQT
-&kp LEFT_SHIFT      &kp Z      &kp X         &kp C        &kp V     &kp B     &kp N         &kp M      &kp COMMA      &kp DOT         &kp UP_ARROW    &kp RIGHT_BRACKET
-&kp LEFT_CONTROL    &kp ENTER  &kp LEFT_ALT  &lt 2 SPACE  &mkp MB1  &mkp MB2  &kp LEFT_WIN  &kp SLASH  &kp LS(SLASH)  &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW
+&kp BACKSPACE       &kp N1     &kp N2        &kp N3       &kp N4    &kp N5    &kp N6     &kp N7     &kp N8         &kp N9          &kp N0          &kp ESC
+&lt 1 TAB           &kp Q      &kp W         &kp E        &kp R     &kp T     &kp Y      &kp U      &kp I          &kp O           &kp P           &kp LEFT_BRACKET
+&kp LC(LEFT_SHIFT)  &kp A      &kp S         &kp D        &kp F     &kp G     &kp H      &kp J      &kp K          &kp L           &kp SEMI        &kp SQT
+&kp LEFT_SHIFT      &kp Z      &kp X         &kp C        &kp V     &kp B     &kp N      &kp M      &kp COMMA      &kp DOT         &kp UP_ARROW    &kp RIGHT_BRACKET
+&kp LEFT_CONTROL    &kp ENTER  &kp LEFT_ALT  &lt 2 SPACE  &mkp MB1  &mkp MB2  &kp ENTER  &kp SLASH  &kp LS(SLASH)  &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW
             >;
 
             sensor-bindings =
@@ -91,11 +93,11 @@
 
         F_layers {
             bindings = <
-&kp DELETE  &kp F1      &kp F2             &kp F3           &kp F4                &kp F5                &kp F6        &kp F7        &kp F8        &kp F9          &kp F10    &none
-&trans      &kp C_MUTE  &kp C_VOLUME_DOWN  &kp C_VOLUME_UP  &kp C_BRIGHTNESS_DEC  &kp C_BRIGHTNESS_INC  &bt BT_SEL 2  &out OUT_TOG  &bt BT_CLR    &bt BT_CLR_ALL  &trans     &kp RIGHT_BRACKET
-&trans      &none       &none              &none            &none                 &trans                &trans        &trans        &trans        &trans          &trans     &trans
-&trans      &trans      &trans             &trans           &trans                &none                 &none         &none         &trans        &trans          &kp PLUS   &trans
-&trans      &trans      &trans             &trans           &trans                &trans                &kp GRAVE     &bt BT_SEL 0  &bt BT_SEL 1  &kp UNDERSCORE  &kp MINUS  &kp EQUAL
+&kp DELETE        &kp F1        &kp F2             &kp F3           &kp F4                &kp F5                &kp F6        &kp F7        &kp F8        &kp F9          &kp F10    &none
+&trans            &kp C_MUTE    &kp C_VOLUME_DOWN  &kp C_VOLUME_UP  &kp C_BRIGHTNESS_DEC  &kp C_BRIGHTNESS_INC  &bt BT_SEL 2  &out OUT_TOG  &bt BT_CLR    &bt BT_CLR_ALL  &trans     &kp RIGHT_BRACKET
+&kp LS(LEFT_WIN)  &none         &none              &none            &none                 &trans                &trans        &trans        &trans        &trans          &trans     &trans
+&trans            &trans        &trans             &trans           &trans                &none                 &none         &none         &trans        &trans          &kp PLUS   &trans
+&trans            &kp LEFT_WIN  &trans             &trans           &trans                &trans                &kp GRAVE     &bt BT_SEL 0  &bt BT_SEL 1  &kp UNDERSCORE  &kp MINUS  &kp EQUAL
             >;
 
             sensor-bindings = <&zoom_encoder>, <&scroll_vertical_encoder>;
