@@ -130,7 +130,7 @@
 		scroll_mode {
             layers = <2>;
             /* Map X -> H-Wheel and Y -> V-Wheel simultaneously */
-            input-processors = <&xy_to_scroll_mapper>;
+            input-processors = <&snipe_scaler 3 4>, <&xy_to_scroll_mapper>;
         };
     };
 
